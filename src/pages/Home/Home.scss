@@ -1,7 +1,8 @@
-$layout-breakpoint-small:800px;
+$smallscreen:800px;
 
 .MainContainer{
   padding:2%;
+  text-align: center;
 
   .title{
     text-transform: uppercase;
@@ -10,7 +11,9 @@ $layout-breakpoint-small:800px;
     padding:1%;
     border-radius: 30px;
     font-size: 24px;
+    text-align: center;
     margin-bottom: 2%;
+    
   }
 }
 .userContainer{
@@ -21,7 +24,7 @@ gap:5% 5%;
 padding-bottom: 20%;
 
 }
-@media (max-width: $layout-breakpoint-small) {
+@media (max-width: $smallscreen) {
   .userContainer {
     grid-template-columns: repeat(1,1fr);
    

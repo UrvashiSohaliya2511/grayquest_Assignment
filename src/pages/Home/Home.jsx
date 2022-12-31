@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import UserCard from "../../componants/UserCard/UserCard";
 import { FetchAllData } from "../../store/UserReducer";
 import "./Home.scss";
+
 const Home = () => {
   const { loading, allUser, error } = useSelector((state) => state.Users);
 
