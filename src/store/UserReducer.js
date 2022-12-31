@@ -18,7 +18,7 @@ export const FetchAllData = createAsyncThunk( "user/FetchAllData", async ( data,
 
 
     } catch ( e ) {
-        console.log( e )
+
         return rejectWithValue( e.message );
     }
 } )
@@ -41,42 +41,39 @@ export const UserReducer = createSlice( {
     name: 'Users',
     initialState,
     reducers: {},
-    extraReducers: {
-        [ FetchUserData.pending ]: ( state ) => {
+    extraReducers: ( builder ) => {
+        builder.addCase( FetchUserData.pending, ( state ) => {
             state.loading = true;
-        },
-        [ FetchUserData.rejected ]: ( state, { payload } ) => {
+        } ).addCase( FetchUserData.rejected, ( state, { payload } ) => {
             state.error = payload;
             state.loading = false;
-        },
-        [ FetchUserData.fulfilled ]: ( state, { payload } ) => {
+        } ).addCase( FetchUserData.fulfilled, ( state, { payload } ) => {
             state.loading = false;
             state.error = null;
             state.curruntUser = payload;
 
 
-        },
-        [ FetchAllData.pending ]: ( state ) => {
-            state.loading = true;
-        },
-        [ FetchAllData.rejected ]: ( state, { payload } ) => {
+        } ).addCase(
+            FetchAllData.pending, ( state ) => {
+                state.loading = true;
+            },
+        ).addCase( FetchAllData.rejected, ( state, { payload } ) => {
             state.error = payload;
             state.loading = false;
-        },
-        [ FetchAllData.fulfilled ]: ( state, { payload } ) => {
+        } ).addCase( FetchAllData.fulfilled, ( state, { payload } ) => {
 
             state.loading = false;
             state.error = null;
             state.allUser = payload;
+        } )
 
 
-        },
+
+
 
 
     },
 } )
 
-
-export const { loading, error, SetUserData, SetAllUserData } = UserReducer.actions
 
 export default UserReducer.reducer
