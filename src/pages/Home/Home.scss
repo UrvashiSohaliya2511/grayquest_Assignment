@@ -1,0 +1,27 @@
+$layout-breakpoint-small:800px;
+
+.MainContainer{
+  padding:2%;
+
+  .title{
+    text-transform: uppercase;
+    background-color: #5526af;
+    display: inline-block;
+    padding:1%;
+    border-radius: 30px;
+  }
+}
+.userContainer{
+display:grid;
+grid-template-columns: repeat(2,1fr);
+justify-content: space-between;
+gap:5% 5%;
+padding-bottom: 20%;
+
+}
+@media (max-width: $layout-breakpoint-small) {
+  .userContainer {
+    grid-template-columns: repeat(1,1fr);
+   
+  }
+}
