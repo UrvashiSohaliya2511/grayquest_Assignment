@@ -10,29 +10,31 @@ const initialState = {
 
 
 
-export const FetchAllData = createAsyncThunk( "user/FetchAllData", async () => {
+export const FetchAllData = createAsyncThunk( "user/FetchAllData", async ( data, { rejectWithValue } ) => {
     try {
         let res = await axios.get( "https://jsonplaceholder.typicode.com/users" );
+
         return res.data;
 
 
     } catch ( e ) {
-        return e.message;
+        console.log( e )
+        return rejectWithValue( e.message );
     }
 } )
 
 
-export const FetchUserData = createAsyncThunk( "user/FetchUserData", async ( id ) => {
+export const FetchUserData = createAsyncThunk( "user/FetchUserData", async ( id, { rejectWithValue } ) => {
     try {
         let res = await axios.get( `https://jsonplaceholder.typicode.com/users/${ id }` );
         return res.data;
 
 
     } catch ( e ) {
-        return e.message;
+
+        return rejectWithValue( e.message );
     }
 } )
-
 
 
 export const UserReducer = createSlice( {
@@ -45,6 +47,7 @@ export const UserReducer = createSlice( {
         },
         [ FetchUserData.rejected ]: ( state, { payload } ) => {
             state.error = payload;
+            state.loading = false;
         },
         [ FetchUserData.fulfilled ]: ( state, { payload } ) => {
             state.loading = false;
@@ -58,8 +61,10 @@ export const UserReducer = createSlice( {
         },
         [ FetchAllData.rejected ]: ( state, { payload } ) => {
             state.error = payload;
+            state.loading = false;
         },
         [ FetchAllData.fulfilled ]: ( state, { payload } ) => {
+
             state.loading = false;
             state.error = null;
             state.allUser = payload;

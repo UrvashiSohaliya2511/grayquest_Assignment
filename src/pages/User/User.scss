@@ -20,9 +20,7 @@ $medium: 900px;
     padding:5%;
     gap:5%;
 
- 
-}
-   img{
+     img{
     width:200px;
     height:200px;
     object-fit: cover;
@@ -31,6 +29,13 @@ $medium: 900px;
    h1,h3{
     font-weight: 400;
    }
+   a{
+    text-decoration: none;
+    color:#fcfbfc;
+   }
+ 
+}
+  
 
 
  @media (max-width: $layout-breakpoint-small) {

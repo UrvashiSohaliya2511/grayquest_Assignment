@@ -1,12 +1,16 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import Button from "../../componants/Button/Button";
+//icons
 import { BsBuilding, BsGlobe, BsTelephone, BsPerson } from "react-icons/bs";
 import { MdOutlineMailOutline } from "react-icons/md";
 import { GoLocation } from "react-icons/go";
-import "./User.scss";
+//componants & Functions
+import Button from "../../componants/Button/Button";
 import { FetchUserData } from "../../store/UserReducer";
+//css
+import "./User.scss";
+
 const User = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -20,10 +24,16 @@ const User = () => {
   const handleClick = () => {
     navigate("/");
   };
+
   return (
     <div className="detailContainer">
       {loading ? (
         <h1>Loading ...</h1>
+      ) : error ? (
+        <>
+          <h1>{error}</h1>
+          <Button handleClick={handleClick} text="Go Back" />
+        </>
       ) : (
         <>
           <div>
@@ -39,7 +49,7 @@ const User = () => {
               <BsTelephone />
               <p>{curruntUser.phone}</p>
               <BsGlobe />
-              <p>{curruntUser.website}</p>
+              <a href="#">{curruntUser.website}</a>
               <BsBuilding />
               {/* <p><Company></p> */}
               <div>

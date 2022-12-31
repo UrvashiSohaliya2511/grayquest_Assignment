@@ -26,7 +26,7 @@ const UserCard = (data) => {
           </div>
           <div className="dataFlex">
             <AiOutlineGlobal />
-            <p>{data.website}</p>
+            <a href="#">{data.website}</a>
           </div>
           <div className="dataFlex">
             <BsBuilding />
