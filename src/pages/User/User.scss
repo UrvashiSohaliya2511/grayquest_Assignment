@@ -5,8 +5,10 @@ $smallscreen:750px;
 .detailContainer{
     display:flex;
     justify-content: center;
+    // align-items: center;
     padding:5%;
     gap:5%;
+    text-align: center;
     
    
      img{
@@ -15,7 +17,7 @@ $smallscreen:750px;
     object-fit: cover;
    
    }
-   h1,h3{
+   h1{
     font-weight: 400;
    }
    a{
@@ -23,17 +25,16 @@ $smallscreen:750px;
     color:#fcfbfc;
    }
    .details{
+    width:100%;
     text-align: left;
     display: grid;
     grid-template-columns: repeat(2,auto);
-    align-items:baseline;
-    justify-content: center;
-    column-gap: 10%;
-    font-weight: 500;
-    
+    align-items:center;
+    justify-content:center;
+    column-gap: 15%;
    
-    
-}
+   
+   }
  
 }
   

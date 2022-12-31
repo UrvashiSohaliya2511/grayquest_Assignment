@@ -53,17 +53,27 @@ const User = () => {
               <BsBuilding />
               {/* <p><Company></p> */}
               <div>
+                <div>
+                  <p>
+                    <b style={{ fontSize: "18px" }}>
+                      {curruntUser?.company?.name}
+                    </b>
+                    <br /> {curruntUser?.company?.catchPhrase} <br />
+                    {curruntUser?.company?.bs}
+                  </p>
+                </div>
+              </div>
+              {/* <div>
                 <h3>{curruntUser?.company?.name}</h3>
                 <p>{curruntUser?.company?.catchPhrase}</p>
                 <p>{curruntUser?.company?.bs}</p>
-              </div>
+              </div> */}
               <GoLocation />
               <div>
                 <p>
                   {curruntUser?.address?.suite} , {curruntUser?.address?.street}
-                </p>
-
-                <p>
+                  ,
+                  <br />
                   {curruntUser?.address?.city} , {curruntUser?.address?.zipcode}
                   .
                 </p>
