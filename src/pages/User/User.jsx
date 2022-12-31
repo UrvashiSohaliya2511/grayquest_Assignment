@@ -2,11 +2,11 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import Button from "../../componants/Button/Button";
-import { FetchUserData } from "../../store/Actions";
 import { BsBuilding, BsGlobe, BsTelephone, BsPerson } from "react-icons/bs";
 import { MdOutlineMailOutline } from "react-icons/md";
 import { GoLocation } from "react-icons/go";
 import "./User.scss";
+import { FetchUserData } from "../../store/UserReducer";
 const User = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();

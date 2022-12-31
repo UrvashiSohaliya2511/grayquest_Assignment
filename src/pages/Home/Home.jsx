@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { FetchAllData } from "../../store/Actions";
+// import { FetchAllData } from "../../store/Actions";
 import UserCard from "../../componants/UserCard/UserCard";
+import { FetchAllData } from "../../store/UserReducer";
 import "./Home.scss";
 const Home = () => {
   const { loading, error, allUser, curruntUser } = useSelector(
@@ -10,7 +11,7 @@ const Home = () => {
 
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(FetchAllData);
+    dispatch(FetchAllData());
   }, []);
   return (
     <div className="MainContainer">
